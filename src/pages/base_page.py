@@ -16,3 +16,10 @@ class BasePage:
 
     def get_text(self, by_locator):
         return self.wait.until(EC.visibility_of_element_located(by_locator)).text
+    
+    def add_file_to_be_upload(self, by_locator, text):
+        file_input = self.wait.until(EC.visibility_of_element_located(by_locator))
+        file_input.send_keys(text)
+        
+    def get_element(self, by_locator):
+        return self.wait.until(EC.visibility_of_element_located(by_locator))
