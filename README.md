@@ -40,6 +40,10 @@ For this project I'm using Pytests which is one of the most popular libraries to
 pip install pytest
 ```
 
+## Installing locust
+```bash
+ pip install locust
+```
 
 ## WebDrivers
 Instead of using downloaded WebDrivers, lets use the default tool that allow us to hadle each webDriver in a cleanest way. 
@@ -80,9 +84,21 @@ adres_project/
 ```
 
 
-## How to run the tests
+## How to run the UI tests
 Please locate on the folder adres_project and run the command: 
 
 ```bash
 pytest tests/
 ```
+
+## How to run the Load Tests
+
+Please locate the folder /src/locust_files and then run the command: 
+
+```bash
+locust -f locustfile.py --host=https://the-internet.herokuapp.com --users 200 --spawn-rate 10
+```
+
+The option --host defines our host url. 
+The option --users defines the total amount of users for this tests. In this case is 200. 
+The option --spawn-rate defines the increasing number of users per each secon of the tests until we reach 200.
